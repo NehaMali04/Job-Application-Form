@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d6e8f5;
+            min-height: 100vh;
+            padding: 20px 0;
+            margin: 0;
+        }
+        
+        .container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: #eaf4fb;
+            padding: 15mm;
+            border: 1px solid #a0c4d8;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .container {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 15mm;
+                border: 2px solid #000;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            
+            .submit-btn {
+                display: none;
+            }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            color: #2196F3;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 1px;
+            background-color: #3a6186;
+            padding: 8px 14px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        
+        .form-group {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .form-group label {
+            width: 240px;
+            font-size: 11px;
+            color: #2c4a6e;
+            margin-right: 8px;
+            flex-shrink: 0;
+            line-height: 1.3;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            flex: 1;
+            padding: 3px 6px;
+            border: 1px solid #7ab3cc;
+            border-radius: 4px;
+            font-size: 10px;
+            max-width: 300px;
+            background: white;
+        }
+        
+        .qualification-table,
+        .experience-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 5px 0;
+            font-size: 9px;
+        }
+        
+        .qualification-table th,
+        .qualification-table td,
+        .experience-table th,
+        .experience-table td {
+            border: 1px solid #7ab3cc;
+            padding: 2px;
+            text-align: center;
+            font-size: 9px;
+        }
+        
+        .qualification-table input,
+        .experience-table input {
+            width: 100%;
+            border: none;
+            padding: 1px;
+            font-size: 8px;
+            background: transparent;
+        }
+        
+        .qualification-table th,
+        .experience-table th {
+            background-color: #3a6186;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+            font-size: 11px;
+            background-color: #3a6186;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .declaration {
+            margin: 15px 0;
+            font-style: italic;
+            font-size: 10px;
+            line-height: 1.3;
+        }
+        
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+            font-size: 10px;
+        }
+        
+        .note {
+            font-size: 9px;
+            margin-top: 10px;
+            line-height: 1.3;
+        }
+        
+        .success-msg {
+            display: none;
+            background: #e6ffed;
+            border: 2px solid #4CAF50;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 16px;
+            color: #2e7d32;
+        }
+
+        .success-msg .checkmark {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .submit-btn {
+            background-color: #3a6186;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2c4a6e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            
+            <div class="title">JOB APPLICATION FORM</div>
+        </div>
+        
+        <form id="jobApplicationForm">
+            <div class="form-group">
+                <label>1. Company Name:</label>
+                <input type="text" name="companyName" required>
+            </div>
+            
+            <div class="form-group">
+                <label>2. Application for the post of:</label>
+                <input type="text" name="postApplied" required>
+            </div>
+            
+            <div class="form-group">
+                <label>3. Name of the applicant:</label>
+                <input type="text" name="applicantName" required>
+            </div>
+            
+            <div class="form-group">
+                <label>4. Date and place of birth:</label>
+                <input type="text" name="birthDetails" required>
+            </div>
+            
+            <div class="form-group">
+                <label>5. Age:</label>
+                <input type="number" name="age" required>
+            </div>
+            
+            <div class="form-group">
+                <label>6. Nationality:</label>
+                <input type="text" name="nationality" required>
+            </div>
+            
+            <div class="form-group">
+                <label>7. Marital Status:</label>
+                <select name="maritalStatus" required>
+                    <option value="">Select</option>
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="widowed">Widowed</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>8. Whether belongs to SC/ST/OBC community:</label>
+                <input type="text" name="community">
+            </div>
+            
+            <div class="form-group">
+                <label>9. Religion:</label>
+                <input type="text" name="religion">
+            </div>
+            
+            <div class="form-group">
+                <label>10. Disability:</label>
+                <input type="text" name="disability">
+            </div>
+            
+            <div class="form-group">
+                <label>11. Permanent address:</label>
+                <textarea name="permanentAddress" rows="3" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>12. Mobile Number:</label>
+                <input type="tel" name="mobileNumber" required placeholder="e.g. 9876543210">
+            </div>
+
+            <div class="form-group">
+                <label>12b. E-mail Address:</label>
+                <input type="email" name="emailAddress" required placeholder="e.g. name@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label>13. Registration Amount:</label>
+                <input type="text" name="registrationAmount">
+            </div>
+            
+            <div class="section-title">14. Qualifications:</div>
+            
+            <table class="qualification-table">
+                <thead>
+                    <tr>
+                        <th>Examination Degree/Diploma</th>
+                        <th>University/Institute</th>
+                        <th>Subjects</th>
+                        <th>Year of Passing</th>
+                        <th>%of marks & Class/Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="exam1"></td>
+                        <td><input type="text" name="university1"></td>
+                        <td><input type="text" name="subjects1"></td>
+                        <td><input type="text" name="year1"></td>
+                        <td><input type="text" name="marks1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="exam2"></td>
+                        <td><input type="text" name="university2"></td>
+                        <td><input type="text" name="subjects2"></td>
+                        <td><input type="text" name="year2"></td>
+                        <td><input type="text" name="marks2"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="exam3"></td>
+                        <td><input type="text" name="university3"></td>
+                        <td><input type="text" name="subjects3"></td>
+                        <td><input type="text" name="year3"></td>
+                        <td><input type="text" name="marks3"></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="form-group">
+                <label>15. Other qualification (if any):</label>
+                <input type="text" name="otherQualification">
+            </div>
+            
+            <div class="form-group">
+                <label>16. Details of projects done (if any):</label>
+                <textarea name="projectDetails" rows="2"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>17. Details of publications (if any):</label>
+                <textarea name="publicationDetails" rows="2"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>18. Are you employed in a Govt./Semi-Govt./Public Sector?:</label>
+                <select name="currentEmployment">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>19. Contractual obligation details:</label>
+                <textarea name="contractualObligation" rows="2"></textarea>
+            </div>
+            
+            <div class="section-title">20. Experience Details:</div>
+            
+            <table class="experience-table">
+                <thead>
+                    <tr>
+                        <th>Name of Employer</th>
+                        <th>Designation</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="employer1"></td>
+                        <td><input type="text" name="designation1"></td>
+                        <td><input type="text" name="from1"></td>
+                        <td><input type="text" name="to1"></td>
+                        <td><input type="text" name="salary1"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="employer2"></td>
+                        <td><input type="text" name="designation2"></td>
+                        <td><input type="text" name="from2"></td>
+                        <td><input type="text" name="to2"></td>
+                        <td><input type="text" name="salary2"></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="form-group">
+                <label>21. Names and addresses of two referees:</label>
+                <div style="flex: 1;">
+                    <div style="margin: 5px 0;">1) <input type="text" name="referee1" style="width: 90%;"></div>
+                    <div style="margin: 5px 0;">2) <input type="text" name="referee2" style="width: 90%;"></div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>22. Previous interview in Centre?:</label>
+                <select name="previousInterview">
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            
+            <div class="declaration">
+                <strong>I hereby declare that the statements made in this application are true, complete and correct to the best of my knowledge and belief.</strong>
+            </div>
+            
+            <div class="signature-section">
+                <div>
+                    Place: <input type="text" name="place" style="border: none; border-bottom: 1px solid #000; width: 80px;">
+                </div>
+                <div>
+                    (Signature of the candidate)<br>
+                    Date: <input type="date" name="date" style="border: none; border-bottom: 1px solid #000; width: 80px;">
+                </div>
+            </div>
+            
+            <div class="note">
+                <strong>NOTE:</strong> Applications with full details and copies of certificates should reach the concerned office.
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit Application</button>
+
+            <div class="success-msg" id="successMsg">
+                <span class="checkmark">✅</span>
+                <strong>Application Submitted Successfully!</strong><br>
+                <span style="font-size:13px;">Aapki application successfully submit ho gayi hai.</span>
+            </div>
+        </form>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDcUhDZmMRX45T1mJeAyUmFldbSCDkQcW0",
+            authDomain: "job-application-form-6f944.firebaseapp.com",
+            projectId: "job-application-form-6f944",
+            storageBucket: "job-application-form-6f944.firebasestorage.app",
+            messagingSenderId: "384207290847",
+            appId: "1:384207290847:web:39198736382803fd0e046a",
+            measurementId: "G-20RGZM62EK"
+        };
+
+        let db = null;
+        let firebaseInitialized = false;
+
+        try {
+            firebase.initializeApp(firebaseConfig);
+            db = firebase.firestore();
+            firebaseInitialized = true;
+            console.log('✅ Firebase initialized successfully');
+        } catch (error) {
+            console.warn('⚠️ Firebase init failed:', error.message);
+        }
+
+        // Form submission handler
+        document.getElementById('jobApplicationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            try {
+                const formData = new FormData(this);
+                const applicationData = {};
+                for (let [key, value] of formData.entries()) {
+                    applicationData[key] = value;
+                }
+
+                applicationData.applicationId = 'APP_' + Date.now();
+                applicationData.submittedAt = new Date().toISOString();
+
+                if (firebaseInitialized && db) {
+                    await db.collection('jobApplications').add(applicationData);
+                    console.log('✅ Data saved to Firebase');
+                } else {
+                    localStorage.setItem('application_' + applicationData.applicationId, JSON.stringify(applicationData));
+                    console.log('💾 Data saved to localStorage (Firebase not connected)');
+                }
+
+                const successMsg = document.getElementById('successMsg');
+                successMsg.style.display = 'block';
+                successMsg.scrollIntoView({ behavior: 'smooth' });
+                this.reset();
+
+            } catch (error) {
+                console.error('Error submitting:', error);
+                alert('Error submitting application: ' + error.message);
+            } finally {
+                submitBtn.textContent = 'Submit Application';
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Auto-save to localStorage
+        let autoSaveTimeout;
+        document.querySelectorAll('input, select, textarea').forEach(input => {
+            const saved = localStorage.getItem('draft_' + input.name);
+            if (saved && input.value === '') input.value = saved;
+
+            input.addEventListener('input', function() {
+                clearTimeout(autoSaveTimeout);
+                autoSaveTimeout = setTimeout(() => {
+                    document.querySelectorAll('input, select, textarea').forEach(el => {
+                        if (el.name && el.value) localStorage.setItem('draft_' + el.name, el.value);
+                    });
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
